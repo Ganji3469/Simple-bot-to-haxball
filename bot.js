@@ -26,6 +26,7 @@ function updateAdmins() {
 }
 
 room.onPlayerJoin = function (player) {
+	updateAdmins();
   room.sendAnnouncement("Bem vindo " + player.name)
   room.sendAnnouncement("digite !help")
 }
