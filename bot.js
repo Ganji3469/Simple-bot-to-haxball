@@ -34,11 +34,11 @@ room.onPlayerChat = function (player, message) {
     if (message.startsWith("!help")) {
         room.sendAnnouncement("!afk, !bb", player.id, 0xFFFF00, "bold", 1)
     }
-    if (message.startsWith("!3469")) {
-		room.setPassword("sala");
+    if (message.startsWith("!fechar")) {
+		room.setPassword("37293828472347");
 		room.sendAnnouncement("A sala foi trancada pelo criador")
 		return false;
-	} else if (message.startsWith("!3468")) {
+	} else if (message.startsWith("!abrir")) {
 		room.setPassword();
 		room.sendAnnouncement("A sala foi aberta pelo criador")
 		return false;
@@ -71,4 +71,8 @@ room.onPlayerTeamChange = (changedPlayer, byPlayer) => {
 		room.setPlayerTeam(changedPlayer.id, 0);
 		if (byPlayer) room.sendAnnouncement(changedPlayer.name + " está afk e não pode ser movido.", null);
 	}
+}
+
+room.onPlayerLeave = function(Player) {
+	updateAdmins();
 }
